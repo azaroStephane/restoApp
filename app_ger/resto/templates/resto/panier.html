@@ -1,0 +1,13 @@
+{% extends './base.html' %}
+
+{% block title %} Mon panier {% endblock %}
+
+{% block content %}
+    <ul>
+    {% for elmt in panier %}
+        <li>
+            {{ elmt.User - elmt.date_creation }}
+        </li>
+    {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends './base.html' %}
+
+{% block title %}Réservation{% endblock %}
+
+{% block content %}
+<h2>Réserver une table</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Réserver</button>
+</form>
+<a href="{% url 'home' %}">Annuler</a>
+{% endblock %}

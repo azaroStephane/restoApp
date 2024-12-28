@@ -1,0 +1,16 @@
+{% extends './base.html' %}
+
+{% block title %}Page d'Accueil{% endblock %}
+
+{% block content %}
+<h1>{{ message_bienvenue }}</h1>
+<h2>Nos Plats</h2>
+<ul>
+    {% for plat in Plats %}
+        <li>{{ plat.name }} - {{ plat.price }} FCFA</li>
+    {% empty %}
+        <li>Aucun plat disponible.</li>
+    {% endfor %}
+</ul>
+<p>Réservez facilement votre table en ligne.</p>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de votre commande</title>
+    <link rel="stylesheet" href="{% static 'reto/css/style.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Merci pour votre commande!</h1>
+        <p>Votre paiement a été traité avec succès.</p>
+        
+        <h2>Détails de votre commande</h2>
+        <ul>
+            {% for item in panier.items.all %}
+                <li>{{ item.quantite }} x {{ item.plat.nom }} - {{ item.plat.prix }} €</li>
+            {% endfor %}
+        </ul>
+        
+        <h3>Montant total: {{ montant_total }} €</h3>
+        
+        <p>Vous recevrez un e-mail de confirmation contenant les détails de votre commande.</p>
+        
+        <a href="{% url 'home' %}">Retour à la page d'accueil</a>
+    </div>
+</body>
+</html>

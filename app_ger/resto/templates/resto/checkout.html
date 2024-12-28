@@ -1,0 +1,22 @@
+{% extends './base.html' %}
+
+{% block title %}Paiement{% endblock %}
+
+{% block content %}
+{% if user.is_authentificated %}
+    <p>{{ user.username }} (ID: {{ user.id }})</p>
+    <form method="post">
+        {% csrf_token %}
+        <h2>MONTANT TOTAL: {{ montant_total }} fcfa</h2>
+        <label for="phoneNumber">Numéro de téléphone :</label>
+        <input type="text" name="phoneNumber" required>
+        <button type="submit">Payer avec Orange Money</button>
+    </form>
+    {% if error_message %}
+        <p>{{ error_message }}</p>
+    {% endif %}
+
+{% else %}
+    <p>veuillez vous connecter !</p>
+{% endif %}
+{% endblock %}
